@@ -57,8 +57,6 @@ const port = 3000;
 
 //http module - create server
 const server = http.createServer(function(request, response){
-    //log request body using logger module
-    log(request);
     //write html
     response.writeHead(200, {'Content-Type': 'text/html'})
     //read index.html
@@ -74,7 +72,18 @@ const server = http.createServer(function(request, response){
         //end communication
         response.end();
     });
+
+    //request endpoints
+    if(request.url === '/test'){
+        response.write(JSON.stringify([1, 2, 3]));
+        response.end();
+    }
 });
+
+//on method
+server.on('connection', () => {
+    log('new connection');
+})
 
 //start server and listen to port
 server.listen(port, function(error) {
