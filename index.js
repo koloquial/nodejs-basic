@@ -1,9 +1,3 @@
-//server protocols
-const http = require('http');
-//file handling
-const fs = require('fs');
-//define port to listen
-const port = 3000;
 
 //load custom module
 const log = require('./logger');
@@ -19,7 +13,8 @@ let totalMemory = os.totalmem();
 let freeMemory = os.freemem();
 log(`Total Memory: ${totalMemory} \nFree Memory: ${freeMemory}`);
 
-//file system
+//file system module
+const fs = require('fs');
 //synchronous
 const files = fs.readdirSync('./');
 log(files);
@@ -54,6 +49,11 @@ logg.on('messLogg', (arg) => {
     console.log('logg message', arg)
 })
 logg.doLogg('do log called.');
+
+//server protocols
+const http = require('http');
+//define port to listen
+const port = 3000;
 
 //http module - create server
 const server = http.createServer(function(request, response){
