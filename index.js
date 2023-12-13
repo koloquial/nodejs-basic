@@ -8,13 +8,13 @@ const port = 3000;
 //create server
 const server = http.createServer(function(request, response){
     //request
-    console.log('Request:', request);
+    // console.log('Request:', request);
     //write html
     response.writeHead(200, {'Content-Type': 'text/html'})
     //read index.html
     fs.readFile('index.html', function(error, data){
         if(error){
-            //not found
+            //file not not found
             response.writeHead(404);
             response.write('Error: File Not Found.');
         }else{
@@ -23,8 +23,8 @@ const server = http.createServer(function(request, response){
         }
         //end communication
         response.end();
-    })
-})
+    });
+});
 
 //start server and listen to port
 server.listen(port, function(error) {
@@ -35,4 +35,4 @@ server.listen(port, function(error) {
         //server started successfully
         console.log(`Server is listening: ${port}`);
     }
-})
+});
