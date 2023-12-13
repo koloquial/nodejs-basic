@@ -58,8 +58,9 @@ const port = 3000;
 //http module - create server
 const server = http.createServer(function(request, response){
     //write html
-    response.writeHead(200, {'Content-Type': 'text/html'})
-    //read index.html
+    response.writeHead(200, {'Content-Type': 'text/html'});
+
+    //read and serve index.html
     fs.readFile('index.html', function(error, data){
         if(error){
             //file not not found
@@ -80,10 +81,6 @@ const server = http.createServer(function(request, response){
     }
 });
 
-//on method
-server.on('connection', () => {
-    log('new connection');
-})
 
 //start server and listen to port
 server.listen(port, function(error) {
@@ -94,4 +91,9 @@ server.listen(port, function(error) {
         //server started successfully
         log(`Server is listening: ${port}`);
     }
+});
+
+//on method
+server.on('connection', () => {
+    log('new connection');
 });
