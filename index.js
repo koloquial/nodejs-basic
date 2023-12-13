@@ -19,6 +19,17 @@ let totalMemory = os.totalmem();
 let freeMemory = os.freemem();
 log(`Total Memory: ${totalMemory} \nFree Memory: ${freeMemory}`);
 
+//file system
+//synchronous
+const files = fs.readdirSync('./');
+log(files);
+
+//asynchronous *preferred
+fs.readdir('./', function(err, files) {
+    if(err) log(err);
+    else log(files);
+})
+
 //http module - create server
 const server = http.createServer(function(request, response){
     //log request body using logger module
