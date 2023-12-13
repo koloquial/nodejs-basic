@@ -19,7 +19,7 @@ let totalMemory = os.totalmem();
 let freeMemory = os.freemem();
 log(`Total Memory: ${totalMemory} \nFree Memory: ${freeMemory}`);
 
-//create server
+//http module - create server
 const server = http.createServer(function(request, response){
     //log request body using logger module
     log(request);
