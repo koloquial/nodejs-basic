@@ -5,8 +5,19 @@ const fs = require('fs');
 //define port to listen
 const port = 3000;
 
-//load module
+//load custom module
 const log = require('./logger');
+
+//path module
+const path = require('path');
+const pathObj = path.parse(__filename);
+log(pathObj);
+
+//operating system module
+const os = require('os');
+let totalMemory = os.totalmem();
+let freeMemory = os.freemem();
+log(`Total Memory: ${totalMemory} \nFree Memory: ${freeMemory}`);
 
 //create server
 const server = http.createServer(function(request, response){
@@ -33,9 +44,9 @@ const server = http.createServer(function(request, response){
 server.listen(port, function(error) {
     if(error){
         //log errors in regards to server starting
-        console.log(error);
+        log(error);
     }else{
         //server started successfully
-        console.log(`Server is listening: ${port}`);
+        log(`Server is listening: ${port}`);
     }
 });

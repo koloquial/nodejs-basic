@@ -3,7 +3,7 @@ function log(message){
 }
 
 //export as object
-// module.exports.log = log;
+//module.exports.log = log;
 
 //export as function
 module.exports = log;
