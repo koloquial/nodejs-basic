@@ -5,10 +5,13 @@ const fs = require('fs');
 //define port to listen
 const port = 3000;
 
+//load module
+const log = require('./logger');
+
 //create server
 const server = http.createServer(function(request, response){
-    //request
-    // console.log('Request:', request);
+    //log request body using logger module
+    log(request);
     //write html
     response.writeHead(200, {'Content-Type': 'text/html'})
     //read index.html

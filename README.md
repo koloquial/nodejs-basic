@@ -1,1 +1,5 @@
-Basic structure for NodeJS web server
+NodeJS:
+
+- Basic http server (index.js)
+- Basic module (logger.js)
+- Basic file serve (index.html)
