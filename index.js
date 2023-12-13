@@ -31,18 +31,29 @@ fs.readdir('./', function(err, files) {
 })
 
 //events module
-//camel casing for class
-const EventEmitter = require('events');
+// const EventEmitter = require('events');
+
 //instance object of new event emitter class
-const emitter = new EventEmitter();
-//emitter methods
+// const emitter = new EventEmitter();
 
 //register a listener
-emitter.on('messageLogged', (arg) => {
-    log('Listener called', arg);
-});
+// emitter.on('messageLogged', (arg) => {
+//     log('Listener called', arg);
+// });
+
 //raise an event (with event arguement)
-emitter.emit('messageLogged', { id: 1, url: 'http://'});
+// emitter.emit('messageLogged', { id: 1, url: 'http://' });
+
+//class with emitter instance
+const Logg = require('./logg.js');
+//create instance
+const logg = new Logg();
+
+//register a listener
+logg.on('messLogg', (arg) => {
+    console.log('logg message', arg)
+})
+logg.doLogg('do log called.');
 
 //http module - create server
 const server = http.createServer(function(request, response){

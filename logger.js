@@ -1,4 +1,5 @@
 function log(message){
+    //log message to console
     console.log(message);
 }
 
