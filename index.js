@@ -2,6 +2,7 @@
 const http = require('http');
 //file handling
 const fs = require('fs');
+//define port to listen
 const port = 3000;
 
 //create server
