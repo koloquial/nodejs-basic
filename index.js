@@ -30,6 +30,20 @@ fs.readdir('./', function(err, files) {
     else log(files);
 })
 
+//events module
+//camel casing for class
+const EventEmitter = require('events');
+//instance object of new event emitter class
+const emitter = new EventEmitter();
+//emitter methods
+
+//register a listener
+emitter.on('messageLogged', (arg) => {
+    log('Listener called', arg);
+});
+//raise an event (with event arguement)
+emitter.emit('messageLogged', { id: 1, url: 'http://'});
+
 //http module - create server
 const server = http.createServer(function(request, response){
     //log request body using logger module

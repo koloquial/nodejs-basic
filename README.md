@@ -2,5 +2,6 @@ NodeJS:
 
 - custom module
 - http module
-- file system
+- file system module
 - path module
+- events module
